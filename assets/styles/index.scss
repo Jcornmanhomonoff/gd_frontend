@@ -1,2 +1,27 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body{
+  background-color: #780;
+}
+
+
+.nav-box{
+  background-color: rgba(0, 0, 0, 1);
+  border: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.content{
+  overflow: scroll;
+}
+
+.nav-box{
+  width: 100%;
+  background-color: rgba (0, 0, 0, .1);
+}
+
+.container-fluid{
+  padding: 0;
+}
