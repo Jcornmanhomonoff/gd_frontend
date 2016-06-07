@@ -6,10 +6,15 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
 
 //for each shot on the page, give it a link and an image
   shots.forEach(function(shot) {
-    html.push('<div class="shots--shot" data-id="' + shot.id + '">');
+    html.push('<div class="shots--shot hovereffect" data-id="' + shot.id + '">');
     html.push('<a href="' + shot.html_url + '" target="_blank">');
     html.push('<img src="' + shot.images.normal + '">');
-    html.push('</a></div>');
+    html.push('<div class="overlay">');
+    html.push('<h2>Effect 11</h2>');
+    html.push('<p>')
+    html.push('<a href="#">LINK HERE</a>')
+    // html.push('<i class="fa fa-twitter fa-facebook fa-instagram fa-dribbble">')
+    html.push('</p></div></a></div>');
   });
 
   $('.shots').html(html.join(''));
@@ -19,6 +24,7 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
 $('.shots--shot').on('click', function(){
     $(this).data('id');
 });
+
 
 //
 // //filter by tag
