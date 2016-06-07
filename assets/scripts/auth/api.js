@@ -2,6 +2,7 @@
 
 const app = require('../app-data.js');
 
+
 const signUp = (success, failure, data) => {
   console.log("Sign up request queued");
   $.ajax({
@@ -45,10 +46,22 @@ const changePW = (success, failure, data) => {
   .fail(failure);
 };
 
+// const addFavorite = (success, failure, data) => {
+//   // debugger;
+//   $.ajax({
+//     method:'POST',
+//     url: app.api + 'favorites',
+//     data,
+//   })
+//   .done(success)
+//   .fail(failure);
+// };
+
 
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePW
+  changePW,
+  // addFavorite,
 };
