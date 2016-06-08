@@ -46,16 +46,16 @@ const changePW = (success, failure, data) => {
   .fail(failure);
 };
 
-// const addFavorite = (success, failure, data) => {
-//   // debugger;
-//   $.ajax({
-//     method:'POST',
-//     url: app.api + 'favorites',
-//     data,
-//   })
-//   .done(success)
-//   .fail(failure);
-// };
+const addFavorite = (success, failure, data) => {
+  // debugger;
+  $.ajax({
+    method:'POST',
+    url: app.api + 'favorites',
+    data,
+  })
+  .done(success)
+  .fail(failure);
+};
 
 
 module.exports = {
@@ -63,5 +63,5 @@ module.exports = {
   signIn,
   signOut,
   changePW,
-  // addFavorite,
+  addFavorite,
 };

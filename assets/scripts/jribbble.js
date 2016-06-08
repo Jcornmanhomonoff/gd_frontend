@@ -1,6 +1,6 @@
 'use strict'
 
-// const authApi = require('./auth/api');
+const authApi = require('./auth/api');
 // const app = require('./app-data.js');
 
 $.jribbble.setToken('829e7b01d4f7bf4fae734bf7af259e228706a7f08abb66459fad663ed89e68db');
@@ -13,13 +13,15 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
     html.push('<a href="' + shot.html_url + '" target="_blank">');
     html.push('<img src="' + shot.images.normal + '">');
     html.push('<div class="overlay">');
-    html.push('<h2>"' + shot.title + '"</h2>');
-    html.push('<p>')
+    html.push('<div class="projectTitle">');
+    html.push('<h2>' + shot.title + '</h2>');
+    html.push('</div>');
+    html.push('<p>');
     html.push(`<a target="_blank" href="http://www.dribbble.com/${shot.user.username}">` + shot.user.name + '</a>');
-    html.push('<p>')
+    html.push('<p>');
     html.push('<a href="#" class="addFavorite">Add to favorites</a>')
-    html.push('<p>')
-    html.push('<a href="#">View on Dribbble</a>')
+    html.push('<p>');
+    html.push('<a href="#">View on Dribbble</a>');
     html.push('<a href="#' + shot.user.name + '"</h2>');
     // html.push('<i class="fa fa-twitter fa-facebook fa-instagram fa-dribbble">')
     html.push('</p></p></p></p></div></a></div>');
@@ -30,9 +32,8 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
 
 //get id of image
 $('.shots--shot').on('click', function(){
-    // let addFavoriteID =
-    $(this).data('id');
-    // authApi.addFavorite(success, failure, addFavoriteID);
+    let addFavoriteID =$(this).data('id');
+    authApi.addFavorite(success, failure, addFavoriteID);
 });
 
 //
