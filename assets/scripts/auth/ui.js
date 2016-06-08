@@ -44,19 +44,18 @@ const signOutSuccess = () => {
 };
 
 const addFavoriteSuccess = (data) => {
-  app.favoriteID = data.favorite.id;
   console.log(app);
   console.log(app.favoriteID);
-  favoritesApi.getFavorite(addFavoriteSuccess, failure);
+  favoritesApi.getFavorite(getFavoriteSuccess, failure);
 }
 
-// const getFavoritesSuccess = (data) => {
-//   let getDrankDisplayTemplate = require('./templates/drank-display.handlebars');
-//   $('.content').html(getDrankDisplayTemplate({
-//     data: data.drinks
-//   }));
-//   console.log(data);
-// };
+const getFavoriteSuccess = (data) => {
+  console.log(data);
+  let getfavoritesTemplate = require('./templates/favorites.handlebars');
+  $('.myfavorites').html(getfavoritesTemplate({
+    data: data.favorites
+  }));
+};
 
 
 module.exports = {
@@ -67,5 +66,6 @@ module.exports = {
   signUpSuccess,
   changePasswordSuccess,
   addFavoriteSuccess,
+  getFavoriteSuccess,
   app,
 };

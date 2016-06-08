@@ -3,7 +3,7 @@
 const app = require('../app-data.js');
 
 
-const addFavorite = (success, failure, id) => {
+const addFavorite = (success, failure, id, name) => {
   // debugger;
   $.ajax({
     method:'POST',
@@ -14,7 +14,7 @@ const addFavorite = (success, failure, id) => {
     data: {
       "favorite": {
         "dribble": id,
-        "name": "name",
+        "name": name,
         "tag": "tag",
       }
     },

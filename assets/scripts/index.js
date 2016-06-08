@@ -13,6 +13,7 @@ const getFormFields = require('../../lib/get-form-fields');
 const app = require('./app-data.js');
 const authApi = require('./auth/api');
 const authUi = require('./auth/ui');
+const authFavorites = require('./auth/favoritesApi');
 // const app = require('./app-data.js');
 
 
@@ -41,12 +42,13 @@ const authUi = require('./auth/ui');
   });
   $('.addFavorite').on('click', function (event){
     event.preventDefault();
-    let data = getFormFields(this);
-    console.log(data);
     data.favorites.user_id = app.id;
-    authApi.addFavorite(authUi.addFavoriteSuccess, authUi.failure, data);
+    authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, data, name);
   })
-
+  // $('#getFavorite').on('click', function (event){
+  //   event.preventDefault();
+  //   authFavorites.getFavorite(authUi.getFavoriteSuccess, authUi.failure);
+  // })
 
 
 // SIGN UP AND IN, MODAL DROP DOWN

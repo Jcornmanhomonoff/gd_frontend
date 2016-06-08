@@ -34,9 +34,11 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
 });
 
 //get id of image & call ajax funtion to send to db
-$('.shots').on('click', '.addFavorite', function(){
-    let addFavoriteID =$(this).data('id');
-    authFavorites.addFavorite(authUi.success, authUi.failure, addFavoriteID);
+$('.shots').on('click', function(){
+    let addFavoriteID = $(event.target).parent().parent().parent().data('id');
+    console.log(addFavoriteID);
+    // let name = shots.shot.title;
+    authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, addFavoriteID);
 });
 
 //
