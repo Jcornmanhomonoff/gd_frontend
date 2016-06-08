@@ -3,6 +3,7 @@
 const app = require('../app-data.js');
 // const authApi = require('./api.js');
 const getFormFields = require('../../../lib/get-form-fields');
+const favoritesApi = require('./favoritesApi');
 
 console.log(app);
 
@@ -42,6 +43,21 @@ const signOutSuccess = () => {
   $('.content').html('');
 };
 
+const addFavoriteSuccess = (data) => {
+  app.favoriteID = data.favorite.id;
+  console.log(app);
+  console.log(app.favoriteID);
+  favoritesApi.getFavorite(addFavoriteSuccess, failure);
+}
+
+// const getFavoritesSuccess = (data) => {
+//   let getDrankDisplayTemplate = require('./templates/drank-display.handlebars');
+//   $('.content').html(getDrankDisplayTemplate({
+//     data: data.drinks
+//   }));
+//   console.log(data);
+// };
+
 
 module.exports = {
   failure,
@@ -50,5 +66,6 @@ module.exports = {
   signOutSuccess,
   signUpSuccess,
   changePasswordSuccess,
+  addFavoriteSuccess,
   app,
 };

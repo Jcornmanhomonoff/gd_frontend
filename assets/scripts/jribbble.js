@@ -1,7 +1,9 @@
 'use strict'
 
 const authApi = require('./auth/api');
-// const app = require('./app-data.js');
+const authFavorites = require('./auth/favoritesApi');
+const authUi = require('./auth/ui');
+
 require('jribbble');
 
 $.jribbble.setToken('829e7b01d4f7bf4fae734bf7af259e228706a7f08abb66459fad663ed89e68db');
@@ -31,10 +33,10 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
   $('.shots').html(html.join(''));
 });
 
-//get id of image
-$('.shots--shot').on('click', function(){
+//get id of image & call ajax funtion to send to db
+$('.shots').on('click', '.addFavorite', function(){
     let addFavoriteID =$(this).data('id');
-    authApi.addFavorite(success, failure, addFavoriteID);
+    authFavorites.addFavorite(authUi.success, authUi.failure, addFavoriteID);
 });
 
 //

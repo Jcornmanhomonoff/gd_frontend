@@ -39,6 +39,13 @@ const authUi = require('./auth/ui');
     event.preventDefault();
     authApi.changePassword(authUi.changePasswordSuccess, authUi.failure, data);
   });
+  $('.addFavorite').on('click', function (event){
+    event.preventDefault();
+    let data = getFormFields(this);
+    console.log(data);
+    data.favorites.user_id = app.id;
+    authApi.addFavorite(authUi.addFavoriteSuccess, authUi.failure, data);
+  })
 
 
 
