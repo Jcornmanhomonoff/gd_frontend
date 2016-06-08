@@ -41,6 +41,13 @@ $('.shots').on('click', function(){
     authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, addFavoriteID);
 });
 
+// THIS IS GETTING ALL FAVORITE SHOTS FOR USER
+
+
+$('#getFavorite').on('click', function(){
+  authFavorites.getFavorite(authUi.dribbbleFavorites, authUi.failure)
+});
+
 //
 // //filter by tag
 // $.jribbble.shots({per_page: 1000}).then(function(shots) {

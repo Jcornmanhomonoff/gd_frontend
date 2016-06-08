@@ -5,6 +5,8 @@ const app = require('../app-data.js');
 const getFormFields = require('../../../lib/get-form-fields');
 const favoritesApi = require('./favoritesApi');
 
+require('jribbble');
+
 console.log(app);
 
 const success = (data) => {
@@ -21,6 +23,7 @@ const signInSuccess = (data) => {
   console.log(app);
   $('#signInModal').modal('hide');
   $(".modal-backdrop").hide();
+  favoritesApi.getFavorite(success, failure);
 };
 
 const changePasswordSuccess = (data) => {
@@ -57,6 +60,17 @@ const getFavoriteSuccess = (data) => {
   }));
 };
 
+// create empty array to push objects into
+// for each id, loop through the array of favorites, get each object for that id
+const dribbbleFavorites = (data) => {
+  console.log(data);
+  let favoriteShots = [];
+  for (var i = 0; i < data.favorites.length; i++) {
+    console.log('test');
+    $.jribbble.shots(data.favorites[i].dribble).then(function(res){
+    })
+  }
+}
 
 module.exports = {
   failure,
@@ -66,6 +80,7 @@ module.exports = {
   signUpSuccess,
   changePasswordSuccess,
   addFavoriteSuccess,
-  getFavoriteSuccess,
+  dribbbleFavorites,
+  // getFavoriteSuccess,
   app,
 };
