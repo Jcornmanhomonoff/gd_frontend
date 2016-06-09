@@ -34,6 +34,7 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
 });
 
 let addFavoriteID;
+let editFavoriteID;
 //get id of image & call ajax funtion to send to db
 $('.shots').on('click', function(){
     addFavoriteID = $(event.target).parent().parent().parent().data('id');
@@ -43,7 +44,15 @@ $('#add-tag').on('submit', function(event){
     let tag = $('#tagName').val();
     console.log(tag);
     authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, addFavoriteID, tag);
-})
+});
+$('#changeTagButton').on('click', function(event){
+    let tag = $('#editTagName').val();
+    console.log(tag);
+    authFavorites.editFavorite(authUi.editTagSuccess, authUi.failure, editFavoriteID, tag);
+});
+$('#edit-tag').on('submit', function(event){
+  event.preventDefault();
+});
 $('#carousel-example-generic').on('click', '.deleteFavorite', function(){
   let favoriteID = $(this).data('id');
   authFavorites.deleteFavorite(authUi.deleteFavoriteSuccess, authUi.failure, favoriteID);
@@ -59,7 +68,14 @@ $('#getFavorite').on('click', function(){
 // OPENS ADD TAG MODAL FROM BUTTON
 $('.shots').on('click', '.addFavorite', function(event){
   event.preventDefault();
-$('#tagModal').modal('show');
+  $('#tagModal').modal('show');
+});
+
+// OPENS EDIT TAG MODAL FROM BUTTON
+$('#carousel-example-generic').on('click', '.editTag', function(event){
+  event.preventDefault();
+  editFavoriteID = $(this).data('id');
+  $('#editTagModal').modal('show');
 });
 
 //

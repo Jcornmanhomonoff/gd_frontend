@@ -89,6 +89,13 @@ const deleteFavoriteSuccess = () => {
 };
 
 
+const editTagSuccess = () => {
+  $('#editTagModal').modal('hide');
+  $(".modal-backdrop").hide();
+  $('#carousel-example-generic').html(''); //reloads html
+  favoritesApi.getFavorite(dribbbleFavorites, failure);
+};
+
 module.exports = {
   failure,
   success,
@@ -99,5 +106,6 @@ module.exports = {
   addFavoriteSuccess,
   dribbbleFavorites,
   deleteFavoriteSuccess,
+  editTagSuccess,
   app,
 };
