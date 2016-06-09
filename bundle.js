@@ -258,7 +258,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  api: 'http://localhost:3000/'
+	  api: 'https://tranquil-bastion-77845.herokuapp.com/'
 	};
 
 	module.exports = {
