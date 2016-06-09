@@ -66,7 +66,7 @@ webpackJsonp([0],[
 	$('#change-password').on('submit', function (event) {
 	  var data = getFormFields(this);
 	  event.preventDefault();
-	  authApi.changePassword(authUi.changePasswordSuccess, authUi.failure, data);
+	  authApi.changePW(authUi.changePasswordSuccess, authUi.failure, data);
 	});
 
 	// SIGN UP AND IN, MODAL DROP DOWN
