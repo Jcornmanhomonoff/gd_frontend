@@ -49,28 +49,39 @@ const signOutSuccess = () => {
 const addFavoriteSuccess = (data) => {
   console.log(app);
   console.log(app.favoriteID);
-  favoritesApi.getFavorite(getFavoriteSuccess, failure);
+  favoritesApi.getFavorite(dribbbleFavorites, failure);
 }
 
-const getFavoriteSuccess = (data) => {
-  console.log(data);
-  let getfavoritesTemplate = require('./templates/favorites.handlebars');
-  $('.myfavorites').html(getfavoritesTemplate({
-    data: data.favorites
-  }));
-};
+// const getFavoriteSuccess = (data) => {
+//   console.log(data);
+//   let getfavoritesTemplate = require('./templates/favorites.handlebars');
+//   $('.myfavorites').html(getfavoritesTemplate({
+//     data: data.favorites
+//   }));
+// };
 
 // create empty array to push objects into
 // for each id, loop through the array of favorites, get each object for that id
 const dribbbleFavorites = (data) => {
   console.log(data);
   let favoriteShots = [];
+  // debugger;
   for (var i = 0; i < data.favorites.length; i++) {
-    console.log('test');
     $.jribbble.shots(data.favorites[i].dribble).then(function(res){
+        // console.log(res);
+        favoriteShots.push(res);
+        console.log(favoriteShots);
     })
-  }
-}
+  };
+  setTimeout(function(){
+    console.log(favoriteShots)
+    let getfavoritesTemplate = require('./templates/favorites.handlebars');
+      $('#carousel-example-generic').html(getfavoritesTemplate({
+        data: favoriteShots
+      }));
+  }, 250);
+};
+
 
 module.exports = {
   failure,
