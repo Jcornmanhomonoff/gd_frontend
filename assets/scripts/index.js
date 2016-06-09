@@ -40,15 +40,7 @@ const authFavorites = require('./auth/favoritesApi');
     event.preventDefault();
     authApi.changePassword(authUi.changePasswordSuccess, authUi.failure, data);
   });
-  $('.addFavorite').on('click', function (event){
-    event.preventDefault();
-    data.favorites.user_id = app.id;
-    authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, data, name);
-  })
-  // $('#getFavorite').on('click', function (event){
-  //   event.preventDefault();
-  //   authFavorites.getFavorite(authUi.getFavoriteSuccess, authUi.failure);
-  // })
+
 
 
 // SIGN UP AND IN, MODAL DROP DOWN
@@ -69,10 +61,4 @@ $('.open-sign-up').on('click', function(event){
 $('.open-change-password').on('click', function(event){
   event.preventDefault();
   $('#changePasswordModal').modal('show');
-});
-
-// OPENS CREATE NEW DRINK FROM BUTTON
-$('.open-create-drink').on('click', function(event){
-  event.preventDefault();
-  $('#createDrinkModal').modal('show');
 });

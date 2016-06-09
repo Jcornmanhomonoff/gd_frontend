@@ -37,7 +37,22 @@ const getFavorite = (success, failure) => {
 };
 
 
+const deleteFavorite = (success, failure, id) => {
+  $.ajax({
+    method:'DELETE',
+    url: app.app.api + 'favorites/' + id,
+    headers: {
+      Authorization: 'Token token='+ app.token,
+    },
+  })
+  .done(success)
+  .fail(failure);
+};
+
+
+
 module.exports = {
   addFavorite,
   getFavorite,
+  deleteFavorite,
 };

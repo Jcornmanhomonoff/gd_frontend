@@ -1,6 +1,11 @@
 {{#each data}}
-  <h1>{{this.title}}</h1>
-  <img src={{this.images.normal}}>
+  <div class="favoriteHolder">
+    <img src={{this.dribbleObject.images.normal}} class="favoriteImage">
+    <h1 class="favoriteTitle">{{this.dribbleObject.title}}</h1>
+    <a href="#" class="deleteFavorite" data-id={{this.railsID}}>Remove from favorites</a>
+  </div>
+
+
 <!-- indicators are small buttons underneath caption which are filled when active -->
 {{!-- <ol class="carousel-indicators">
   <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>

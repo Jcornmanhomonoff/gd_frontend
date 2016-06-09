@@ -50,36 +50,40 @@ const addFavoriteSuccess = (data) => {
   console.log(app);
   console.log(app.favoriteID);
   favoritesApi.getFavorite(dribbbleFavorites, failure);
-}
+};
 
-// const getFavoriteSuccess = (data) => {
-//   console.log(data);
-//   let getfavoritesTemplate = require('./templates/favorites.handlebars');
-//   $('.myfavorites').html(getfavoritesTemplate({
-//     data: data.favorites
-//   }));
-// };
 
+// GET FAVORITES
 // create empty array to push objects into
 // for each id, loop through the array of favorites, get each object for that id
 const dribbbleFavorites = (data) => {
   console.log(data);
   let favoriteShots = [];
   // debugger;
-  for (var i = 0; i < data.favorites.length; i++) {
+  for (let i = 0; i < data.favorites.length; i++) {
     $.jribbble.shots(data.favorites[i].dribble).then(function(res){
-        // console.log(res);
-        favoriteShots.push(res);
-        console.log(favoriteShots);
+        favoriteShots.push(
+          {dribbleObject: res,
+          railsID: data.favorites[i].id,
+        }
+      );
+    console.log(favoriteShots);
     })
   };
+  //tells template to wait for 1/4 second until data is pushed into array
   setTimeout(function(){
     console.log(favoriteShots)
     let getfavoritesTemplate = require('./templates/favorites.handlebars');
       $('#carousel-example-generic').html(getfavoritesTemplate({
         data: favoriteShots
       }));
-  }, 250);
+  }, 500);
+};
+
+
+const deleteFavoriteSuccess = () => {
+  $('#carousel-example-generic').html(''); //reloads html
+  favoritesApi.getFavorite(dribbbleFavorites, failure)
 };
 
 
@@ -92,6 +96,6 @@ module.exports = {
   changePasswordSuccess,
   addFavoriteSuccess,
   dribbbleFavorites,
-  // getFavoriteSuccess,
+  deleteFavoriteSuccess,
   app,
 };

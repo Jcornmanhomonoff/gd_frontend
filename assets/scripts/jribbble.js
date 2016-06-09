@@ -40,6 +40,11 @@ $('.shots').on('click', function(){
     // let name = shots.shot.title;
     authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, addFavoriteID);
 });
+$('#carousel-example-generic').on('click', '.deleteFavorite', function(){
+  let favoriteID = $(this).data('id');
+  console.log(favoriteID);
+  authFavorites.deleteFavorite(authUi.deleteFavoriteSuccess, authUi.failure, favoriteID);
+});
 
 
 
