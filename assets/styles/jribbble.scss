@@ -10,4 +10,9 @@ ul.shots {
 
 a:hover {
   text-decoration: none;
+  color: $hover-purple;
+}
+
+.projectTitle{
+  text-shadow: 2px 2px $hot-pink;
 }

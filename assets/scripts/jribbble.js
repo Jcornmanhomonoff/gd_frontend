@@ -78,6 +78,8 @@ $('#carousel-example-generic').on('click', '.editTag', function(event){
   $('#editTagModal').modal('show');
 });
 
+
+$(".item.favoriteCarousel").first().addClass('active');
 //
 // //filter by tag
 // $.jribbble.shots({per_page: 1000}).then(function(shots) {
