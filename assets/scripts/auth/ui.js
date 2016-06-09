@@ -47,8 +47,9 @@ const signOutSuccess = () => {
 };
 
 const addFavoriteSuccess = (data) => {
-  console.log(app);
-  console.log(app.favoriteID);
+  console.log(data);
+  $('#tagModal').modal('hide');
+  $(".modal-backdrop").hide();
   favoritesApi.getFavorite(dribbbleFavorites, failure);
 };
 
@@ -65,6 +66,7 @@ const dribbbleFavorites = (data) => {
         favoriteShots.push(
           {dribbleObject: res,
           railsID: data.favorites[i].id,
+          favoriteTag: data.favorites[i].tag,
         }
       );
     console.log(favoriteShots);

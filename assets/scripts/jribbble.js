@@ -33,25 +33,33 @@ $.jribbble.shots({per_page: 100}).then(function(shots) {
   $('.shots').html(html.join(''));
 });
 
+let addFavoriteID;
 //get id of image & call ajax funtion to send to db
 $('.shots').on('click', function(){
-    let addFavoriteID = $(event.target).parent().parent().parent().data('id');
-    console.log(addFavoriteID);
-    // let name = shots.shot.title;
-    authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, addFavoriteID);
+    addFavoriteID = $(event.target).parent().parent().parent().data('id');
 });
+$('#add-tag').on('submit', function(event){
+    event.preventDefault();
+    let tag = $('#tagName').val();
+    console.log(tag);
+    authFavorites.addFavorite(authUi.addFavoriteSuccess, authUi.failure, addFavoriteID, tag);
+})
 $('#carousel-example-generic').on('click', '.deleteFavorite', function(){
   let favoriteID = $(this).data('id');
-  console.log(favoriteID);
   authFavorites.deleteFavorite(authUi.deleteFavoriteSuccess, authUi.failure, favoriteID);
 });
 
 
-
 // THIS IS GETTING ALL FAVORITE SHOTS FOR USER
-
 $('#getFavorite').on('click', function(){
   authFavorites.getFavorite(authUi.dribbbleFavorites, authUi.failure)
+});
+
+
+// OPENS ADD TAG MODAL FROM BUTTON
+$('.shots').on('click', '.addFavorite', function(event){
+  event.preventDefault();
+$('#tagModal').modal('show');
 });
 
 //
