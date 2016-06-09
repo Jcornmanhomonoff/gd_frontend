@@ -38,7 +38,7 @@ const authFavorites = require('./auth/favoritesApi');
   $('#change-password').on('submit', function (event){
     let data = getFormFields(this);
     event.preventDefault();
-    authApi.changePassword(authUi.changePasswordSuccess, authUi.failure, data);
+    authApi.changePW(authUi.changePasswordSuccess, authUi.failure, data);
   });
 
 
