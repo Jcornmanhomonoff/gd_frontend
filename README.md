@@ -15,7 +15,7 @@ The point of my "tag" on each image was to allow users to filter their favorites
 3. As a user I would like the site to be simple so I can easily use it.
 
 ##Wireframe
-![](./assets/images/Wireframe.png)
+![](./assets/imgs/Wireframe.png)
 
 ##Screenshot
-![](./assets/images/ScreenShot.png)
+![](./assets/imgs/ScreenShot.png)
