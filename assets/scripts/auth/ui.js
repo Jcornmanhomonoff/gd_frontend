@@ -23,6 +23,10 @@ const signInSuccess = (data) => {
   console.log(app);
   $('#signInModal').modal('hide');
   $(".modal-backdrop").hide();
+  $('#getFavorite').show();
+  $('#sign-out').show();
+  $('html, body').css('overflow-y', 'visible');
+  $('html, body').css('overflow-x', 'visible');
   favoritesApi.getFavorite(success, failure);
 };
 
@@ -44,6 +48,9 @@ const signOutSuccess = () => {
   app.user = null;
   console.log(app);
   $('.content').html('');
+  $('#getFavorite').hide();
+  $('html, body').css('overflow-y', 'hidden');
+  $('html, body').css('overflow-x', 'hidden');
 };
 
 const addFavoriteSuccess = (data) => {

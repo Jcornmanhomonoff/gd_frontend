@@ -5,6 +5,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'carousel';
 @import 'imagehover';
 @import 'jribbble';
+@import 'cover';
 
 
 body{
@@ -19,6 +20,10 @@ body{
   background-color: rgba(0, 0, 0, 0);
 }
 
+.navbar-header {
+  padding-left: 20px;
+}
+
 .content{
   overflow: scroll;
 }
@@ -30,4 +35,17 @@ body{
 
 .container-fluid{
   padding: 0;
+}
+
+html, body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#getFavorite {
+  display: none;
+}
+
+#sign-out{
+  display: none;
 }
