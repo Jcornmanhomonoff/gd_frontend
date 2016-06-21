@@ -14,7 +14,7 @@ The point of my "tag" on each image was to allow users to filter their favorites
 2. As a user I would like the site to be visually appealing so I don't get bored.
 3. As a user I would like the site to be simple so I can easily use it.
 
-##Wireframe
+##Wireframes
 ![](./assets/images/Wireframe.png)
 
 ##Screenshot
