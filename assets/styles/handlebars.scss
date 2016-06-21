@@ -1,11 +1,21 @@
-.favoriteTitle {
+.textHolder {
+  text-align: left;
+  align-content: center;
   position: absolute;
-};
+  margin-top: -300px;
+  padding-left: 20px;
+}
 
 .favoriteHolder {
   position: relative;
+  display: inline-block;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+
 }
 
 .favoriteImage {
   position: relative;
+  z-index: -1;
 }

@@ -2,9 +2,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 @import 'colors';
+@import 'cover';
 @import 'carousel';
 @import 'imagehover';
 @import 'jribbble';
+@import 'handlebars';
 
 
 body{
@@ -17,15 +19,11 @@ body{
   border: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
+  // position: fixed;
 }
 
 .content{
   overflow: scroll;
-}
-
-.nav-box{
-  width: 100%;
-  background-color: rgba (0, 0, 0, .1);
 }
 
 .container-fluid{
