@@ -65,6 +65,7 @@
   filter: alpha(opacity=0);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.45s;
   transition: opacity 0.35s, transform 0.45s;
+  //moves element in 3D space
   -webkit-transform: translate3d(-10px,0,0);
   transform: translate3d(-10px,0,0);
 }

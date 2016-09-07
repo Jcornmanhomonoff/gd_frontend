@@ -8,7 +8,7 @@ require('jribbble');
 
 $.jribbble.setToken('829e7b01d4f7bf4fae734bf7af259e228706a7f08abb66459fad663ed89e68db');
 $.jribbble.shots({per_page: 99}).then(function(shots) {
-  var html = [];
+  let html = [];
 
 //for each shot on the page, give it a link and an image
   shots.forEach(function(shot) {
@@ -30,6 +30,8 @@ $.jribbble.shots({per_page: 99}).then(function(shots) {
     html.push('</p></p></p></p></div></a></div>');
   });
 
+
+//join elements into a string
   $('.shots').html(html.join(''));
 });
 
